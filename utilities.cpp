@@ -300,7 +300,7 @@ void showArray(const int array[], int size){
 
 bool intVectorBinSearch(vector<int> vector, int value) {
     int first = 0;
-    int last = (vector.size() - 1);
+    int last = ((unsigned)vector.size() - 1);
     int middle;
     bool found = false;
 
