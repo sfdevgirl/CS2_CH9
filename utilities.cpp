@@ -269,7 +269,7 @@ char askOverWrite(void) {
 }//askOverwrite
 
 
-//SHANNON'S
+//SHANNON'S============================================================
 
 
 void sortArray(int array[], int size){
@@ -458,4 +458,111 @@ void initVector(vector<int> &vector) {
         
     } while (value != -999);
 } //initVector
+
+//CH9_DEFS
+int* expandArray(int* intAP,  int CURRENT_SIZE, int max) {
+    
+    int* tempAP = nullptr;
+    tempAP = new int[max];
+    
+    if ( CURRENT_SIZE < max){
+        
+        
+        
+        
+        // allocate
+        for (int i = 0; i < max; i++) {
+            *(tempAP + i) = 0;
+        }//for
+        
+        
+        // copy old into new
+        for (int i = 0; i < CURRENT_SIZE; i++) {
+            *(tempAP + i) = *(intAP + i);
+            
+            //        //display copy
+            //        cout << "Copying row "  << "[" << i << "]"
+            //        << " with data " << intAP[i]
+            //       << " into the new array \n";
+            
+            
+        }//for
+        
+        //display new
+        cout << "\nExpanded array! (+8)\n";
+        
+        for (int i = 0; i < max; i++){
+            cout << "Entry at " << i << " Is " << tempAP[i] << endl;
+        }//for
+        
+        cout << "\n";
+        
+        for (int i = 0; i < max; i++) {
+            *(tempAP + i) = *(intAP + i);
+            
+            //display copy
+            cout << "Copying row "  << "[" << i << "]"
+            << " with data " << *(intAP + i)
+            << " into the new array \n";
+            
+            
+        }//for
+        cout << "\n";
+        
+        
+        
+        //deallocate
+        delete[] intAP;
+        intAP = nullptr;
+        
+    }
+    else{}
+    return tempAP;
+}//expandArray
+
+
+
+int* compressArray(int* intAP,  int CURRENT_SIZE, int max) {
+    
+    int* tempAP = nullptr;
+    tempAP = new int[max];
+    
+    
+    if ( CURRENT_SIZE > max){
+        // allocate
+        for (int i = 0; i < max; i++) {
+            *(tempAP + i) = 0;
+        }//for
+        
+        // copy old into new
+        for (int i = 0; i < CURRENT_SIZE; i++) {
+            *(tempAP + i) = *(intAP + i);
+            
+        }//for
+        
+        //display new
+        cout << "\nCompressed array! (-5)\n";
+        
+        for (int i = 0; i < max; i++){
+            cout << "Entry at " << i << " Is " << tempAP[i] << endl;
+        }//for
+        
+        cout << "\n";
+        
+        for (int i = 0; i < max; i++) {
+            *(tempAP + i) = *(intAP + i);
+            
+        }//for
+        cout << "\n";
+        
+        
+        
+        //deallocate
+        delete[] intAP;
+        intAP = nullptr;
+        
+    }
+    else{}
+    return tempAP;
+}//compressArray
 

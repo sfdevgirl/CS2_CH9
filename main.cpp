@@ -24,12 +24,6 @@
 #include <ctime>
 #include <cstdlib>
 #include "utilities.hpp"
-
-
-
-//PROTO
-int *expandArray(int*,  int, int);
-int *compressArray(int*,  int, int);
 using namespace std;
 //MAIN
 int main(int argc, const char * argv[]) {
@@ -43,10 +37,7 @@ int main(int argc, const char * argv[]) {
     int *iPtr = nullptr;
     iPtr = new int[size];
     int* cPtr = nullptr;
-    
     cPtr = new int[shrink];
-    
-    
     
     for(int i= 0; i < size; i++){
         int temp =(rand()%101);
@@ -64,124 +55,11 @@ int main(int argc, const char * argv[]) {
     cout << "\n";
     
     expandArray(iPtr, size, expanded);
+    //??orignal = expand(orginalArray, increase size, original size)
     compressArray(cPtr, expanded, shrink);
     
     cout << "Goodbye; have a great day!\n";
     
     return 0;
 }//MAIN
-
-//DEFS
-int* expandArray(int* intAP,  int CURRENT_SIZE, int max) {
-    
-    int* tempAP = nullptr;
-    tempAP = new int[max];
-    
-    if ( CURRENT_SIZE < max){
-        
-        
-        
-        
-        // allocate
-        for (int i = 0; i < max; i++) {
-            *(tempAP + i) = 0;
-        }//for
-        
-        
-        // copy old into new
-        for (int i = 0; i < CURRENT_SIZE; i++) {
-            *(tempAP + i) = *(intAP + i);
-            
-            //display copy
-            cout << "Copying row "  << "[" << i << "]"
-            << " with data " << intAP[i]
-            << " into the new array \n";
-            
-            
-        }//for
-        
-        //display new
-        cout << "\nExpanded array! (+8)\n";
-        
-        for (int i = 0; i < max; i++){
-            cout << "Entry at " << i << " Is " << tempAP[i] << endl;
-        }//for
-        
-        cout << "\n";
-        
-        for (int i = 0; i < max; i++) {
-            *(tempAP + i) = *(intAP + i);
-            
-            //display copy
-            cout << "Copying row "  << "[" << i << "]"
-            << " with data " << *(intAP + i)
-            << " into the new array \n";
-            
-            
-        }//for
-        cout << "\n";
-        
-        
-        
-        //deallocate
-        delete[] intAP;
-        intAP = nullptr;
-        
-    }
-    else{}
-    return tempAP;
-}//expandArray
-
-
-
-int* compressArray(int* intAP,  int CURRENT_SIZE, int max) {
-    
-    int* tempAP = nullptr;
-    tempAP = new int[max];
-    
-    
-    if ( CURRENT_SIZE > max){
-        // allocate
-        for (int i = 0; i < max; i++) {
-            *(tempAP + i) = 0;
-        }//for
-        for (int i = 0; i < max; i++){
-            cout << "Entry at " << i << " Is " << tempAP[i] << endl;
-        }//for
-        
-        
-        // copy old into new
-        for (int i = 0; i < CURRENT_SIZE; i++) {
-            *(tempAP + i) = *(intAP + i);
-            
-        }//for
-        
-        //display new
-        cout << "\nCompressed array! (-5)\n";
-        
-        for (int i = 0; i < max; i++){
-            cout << "Entry at " << i << " Is " << tempAP[i] << endl;
-        }//for
-        
-        cout << "\n";
-        
-        for (int i = 0; i < max; i++) {
-            *(tempAP + i) = *(intAP + i);
-            
-        }//for
-        cout << "\n";
-        
-        
-        
-        //deallocate
-        delete[] intAP;
-        intAP = nullptr;
-        
-    }
-    else{}
-    return tempAP;
-}//compressArray
-
-
-
 

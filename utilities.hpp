@@ -45,6 +45,9 @@ bool intVectorBinSearch(vector<int>, int);
 bool intVectorLinSearch(vector<int>, int);
 void displayVector(vector<int>);
 void initVector(vector<int> &);
+//CH9_PROTO
+int *expandArray(int*,  int, int);
+int *compressArray(int*,  int, int);
 
 
 #endif /* defined(__CPPUtilities__utilities__) */
