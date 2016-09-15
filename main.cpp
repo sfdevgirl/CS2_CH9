@@ -8,7 +8,7 @@
 
 //Is this an extra credit Project:  No
 
-//Date completed: 09/07/2016
+//Date completed: 09/07/2016 (9/13/16)
 
 //Operating system used: OSX
 
@@ -24,6 +24,12 @@
 #include <ctime>
 #include <cstdlib>
 #include "utilities.hpp"
+
+void printArray(int testArray[], int arraySize){
+    for(int i=0; i < arraySize; i++){
+        cout << testArray[i] << endl;
+    }
+}
 using namespace std;
 //MAIN
 int main(int argc, const char * argv[]) {
@@ -36,8 +42,8 @@ int main(int argc, const char * argv[]) {
     
     int *iPtr = nullptr;
     iPtr = new int[size];
-    int* cPtr = nullptr;
-    cPtr = new int[shrink];
+
+   
     
     for(int i= 0; i < size; i++){
         int temp =(rand()%101);
@@ -54,9 +60,11 @@ int main(int argc, const char * argv[]) {
     
     cout << "\n";
     
-    expandArray(iPtr, size, expanded);
-    //??orignal = expand(orginalArray, increase size, original size)
-    compressArray(cPtr, expanded, shrink);
+    iPtr = expandArray(iPtr, size, expanded);
+    printArray(iPtr, expanded);
+ 
+    iPtr = compressArray(iPtr, expanded, shrink);
+    printArray(iPtr, shrink);
     
     cout << "Goodbye; have a great day!\n";
     
